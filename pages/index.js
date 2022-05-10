@@ -1,21 +1,27 @@
-// import Head from "next/head";
+//import Head from "next/head";
 // import Image from "next/image";
-import styles from "../styles/Home.module.css";
+//import styles from "../styles/Home.module.css";
 import prisma from "lib/prisma";
+import MiniLogo from "./minilogo";
 
 export default function Home({ questions }) {
     return (
-        <div className={styles.container}>
-            <h1>Setting up Next and Prisma</h1>
-            <ul>
-                {questions.map((question, index) => {
-                    return (
-                        <li key={index}>
-                            {question.first} {question.answer} {question.second}
-                        </li>
-                    );
-                })}
-            </ul>
+        <div className="app-container">
+            <div className="strapline">
+                <MiniLogo />
+            </div>
+            <div className="app-contents">
+                <ul>
+                    {questions.map((question, index) => {
+                        return (
+                            <li key={index}>
+                                {question.first} {question.answer}{" "}
+                                {question.second}
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
         </div>
     );
 }
