@@ -1,28 +1,15 @@
-//import Head from "next/head";
-// import Image from "next/image";
-//import styles from "../styles/Home.module.css";
-// import prisma from "lib/prisma";
 import MiniLogo from "./minilogo";
+import Splash from "./welcome";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-export default function Home({ questions }) {
-    const endpoints = [
-        {
-            name: "GET /questions",
-            description: "fetch questions from database",
-        },
-    ];
-
+export default function Home() {
     return (
         <div className="app-container">
             <div className="strapline">
                 <MiniLogo />
             </div>
-
-            <div>prepositioner homepage</div>
-
-            <div>
-                {endpoints.name} {endpoints.description}
-            </div>
+            <Splash />
         </div>
     );
 }
