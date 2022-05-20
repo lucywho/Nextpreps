@@ -1,7 +1,15 @@
-import { Link } from "next/link";
+import Link from "next/link";
 import Logo from "./logo";
+import Router from "next/router";
 
 export default function Splash() {
+    const router = Router;
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        router.push("/test");
+    };
+
     return (
         <div className="splash">
             <h1>Welcome to</h1>
@@ -9,9 +17,9 @@ export default function Splash() {
 
             <h2>Ten questions to help you practice your German prepositions</h2>
 
-            {/* <Link to="/questions">
-                <button id="start">Click here to to start the quiz</button>
-            </Link> */}
+            <button id="start" onClick={handleClick}>
+                Click here to start the quiz
+            </button>
         </div>
     );
 }
