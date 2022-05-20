@@ -6,9 +6,7 @@ import { useRouter } from "next/router";
 export default function Home() {
     return (
         <div className="app-container">
-            <div className="strapline">
-                <MiniLogo />
-            </div>
+            <div className="strapline"></div>
             <Splash />
         </div>
     );
