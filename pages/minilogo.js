@@ -8,6 +8,7 @@ export default function MiniLogo() {
             alt="small logo"
             width={100}
             height={100}
+            layout="fixed"
         />
     );
 }
