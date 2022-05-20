@@ -10,7 +10,32 @@ export default async function handler(req, res) {
         return;
     }
 
-    const questions = await prisma.question.findMany();
+    const allQuestions = await prisma.question.findMany();
+
+    let total = allQuestions.length;
+    let numbers = [];
+
+    for (let i = 0; i <= total; i++) {
+        if (numbers.length < i) {
+            let num = Math.floor(Math.random() * total + 1);
+            numbers.push(num);
+        }
+    }
+
+    let uniqueNumbers = new Set(numbers);
+    numbers = Array.from(uniqueNumbers);
+
+    let ids = numbers.slice([0], [10]);
+
+    let questions = [];
+
+    ids.map((num) => {
+        let newQuestion = allQuestions.filter((question) => {
+            return question.id == num;
+        });
+
+        questions.push(newQuestion[0]);
+    });
 
     res.status(200).json(questions);
 }

@@ -1,18 +1,23 @@
 import MiniLogo from "./minilogo";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
-export default function Test() {
+export default function Test(props) {
     const [questions, setQuestions] = useState([]);
+    const router = useRouter();
+    let gen = router.query.gender;
 
-    async function fetchQuestions() {
-        const response = await fetch("/api/questions");
-        const data = await response.json();
-        setQuestions(data);
-    }
+    console.log("fetch: ", gen);
 
     useEffect(() => {
+        async function fetchQuestions() {
+            const response = await fetch(`/api/questions/${gen}`);
+            const data = await response.json();
+            setQuestions(data);
+        }
         fetchQuestions();
-    }, []);
+        console.log("resp: ", router.res);
+    }, [gen, router.res]);
 
     return (
         <div className="test">

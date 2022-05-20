@@ -16,7 +16,7 @@ a {
     box-sizing: border-box;
 }
 
-button {
+.start {
     font-family: inherit;
     font-size: 25px;
     color: white;
@@ -27,7 +27,7 @@ button {
     border: whitesmoke 5px double;
 }
 
-button:hover {
+.start:hover {
     color: #238136;
     background-color: whitesmoke;
     border: #238136 5px double;
