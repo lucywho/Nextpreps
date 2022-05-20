@@ -16,6 +16,23 @@ a {
     box-sizing: border-box;
 }
 
+button {
+    font-family: inherit;
+    font-size: 25px;
+    color: white;
+    background-color: #238136;
+    height: 100px;
+    width: 300px;
+    padding: 5px 10px;
+    border: whitesmoke 5px double;
+}
+
+button:hover {
+    color: #238136;
+    background-color: whitesmoke;
+    border: #238136 5px double;
+}
+
 .app-container {
     height: 100vh;
 }
@@ -41,12 +58,12 @@ a {
     font-family: inherit;
 }
 
-.logo {
-    height: 200px;
-    width: 200px;
+h1 {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
 }
 
-.mini-logo {
-    height: 100px;
-    width: 100px;
+h2 {
+    font-size: 25px;
 }

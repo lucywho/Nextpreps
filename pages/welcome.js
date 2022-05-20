@@ -17,8 +17,16 @@ export default function Splash() {
 
             <h2>Ten questions to help you practice your German prepositions</h2>
 
-            <button id="start" onClick={handleClick}>
-                Click here to start the quiz
+            <p>Choose your test: </p>
+
+            <button id="akk" className="start" onClick={handleClick}>
+                Accusative
+            </button>
+            <button id="dat" className="start" onClick={handleClick}>
+                Dative
+            </button>
+            <button id="all" className="start" onClick={handleClick}>
+                Mixed cases
             </button>
         </div>
     );
