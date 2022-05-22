@@ -8,13 +8,10 @@ export default function Splash() {
     const handleClick = (e, gen) => {
         e.preventDefault();
         console.log("gen at handle click: ", gen);
-        router.push(
-            {
-                pathname: "/test",
-                query: { gender: gen },
-            },
-            "/test"
-        );
+        router.push({
+            pathname: "/test",
+            query: { gender: gen },
+        });
     };
 
     return (
@@ -48,7 +45,7 @@ export default function Splash() {
                 id="all"
                 className="start"
                 onClick={(e) => {
-                    handleClick(e);
+                    handleClick(e, "all");
                 }}
             >
                 Mixed cases

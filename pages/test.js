@@ -7,17 +7,22 @@ export default function Test(props) {
     const router = useRouter();
     let gen = router.query.gender;
 
-    console.log("fetch: ", gen);
+    // console.log("fetch: ", gen);
 
     useEffect(() => {
         async function fetchQuestions() {
-            const response = await fetch(`/api/questions/${gen}`);
+            let response;
+            if (gen === "all") {
+                response = await fetch(`/api/questions`);
+            } else {
+                response = await fetch(`/api/questions/${gen}`);
+            }
             const data = await response.json();
             setQuestions(data);
         }
         fetchQuestions();
-        console.log("resp: ", router.res);
-    }, [gen, router.res]);
+        // console.log("resp: ", router.res);
+    }, [gen]);
 
     return (
         <div className="test">

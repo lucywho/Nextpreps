@@ -1,10 +1,12 @@
 import prisma from "lib/prisma";
+import createTens from "tens";
 
 export default async function handler(req, res) {
     if (req.method === "GET") {
         if (req.query.gen != "a" && req.query.gen != "d") {
             return res.status(400).json({ message: "Bad Request" });
         }
+        //TODO: find out if db can return random selection of entries that meet condition - wld reduce amt of data being fetched and get rid of lines 17-37
 
         const caseQuestions = await prisma.question.findMany({
             where: {
@@ -12,32 +14,13 @@ export default async function handler(req, res) {
             },
         });
 
-        // let total = caseQuestions.length;
-        // let numbers = [];
+        let idResult = caseQuestions.map((index) => index.id);
 
-        // for (let i = 0; i <= total; i++) {
-        //     if (numbers.length < i) {
-        //         let num = Math.floor(Math.random() * total + 1);
-        //         numbers.push(num);
-        //     }
-        // }
+        const questions = createTens(idResult);
 
-        // let uniqueNumbers = new Set(numbers);
-        // numbers = Array.from(uniqueNumbers);
+        console.log("case questions: ", questions);
 
-        // let ids = numbers.slice([0], [10]);
-
-        // let casequestions = [];
-
-        // ids.map((num) => {
-        //     let newQuestion = caseQuestions.filter((question) => {
-        //         return question.id == num;
-        //     });
-
-        //     casequestions.push(newQuestion[0]);
-        // });
-        console.log("caseqs:", caseQuestions);
-        res.status(200).json(caseQuestions);
+        res.status(200).json(questions);
     } else {
         res.status(405)
             .json({
