@@ -5,12 +5,12 @@ import Router from "next/router";
 export default function Splash() {
     const router = Router;
 
-    const handleClick = (e, gen) => {
+    const handleClick = (e, kas) => {
         e.preventDefault();
-        console.log("gen at handle click: ", gen);
+        console.log("kasus at handle click: ", kas);
         router.push({
             pathname: "/test",
-            query: { gender: gen },
+            query: { kasus: kas },
         });
     };
 
@@ -45,7 +45,7 @@ export default function Splash() {
                 id="all"
                 className="start"
                 onClick={(e) => {
-                    handleClick(e, "all");
+                    handleClick(e);
                 }}
             >
                 Mixed cases

@@ -16,5 +16,5 @@ model Question {
   answer     String
   second     String
   transl     String
-  gender     String
+  kasus      String
 }

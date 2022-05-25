@@ -4,14 +4,14 @@ import createTens from "tens";
 export default async function handler(req, res) {
     const questions = [];
     if (req.method === "GET") {
-        if (req.query.gen != "a" && req.query.gen != "d") {
+        if (req.query.kas != "a" && req.query.kas != "d") {
             return res.status(400).json({ message: "Bad Request" });
         }
-        //TODO: find out if db can return random selection of entries that meet condition - wld reduce amt of data being fetched and get rid of lines 17-37
+        //TODO: find out if db can return random selection of entries that meet condition - wld reduce amt of data being fetched and get rid of test.js function
 
         const caseQuestions = await prisma.question.findMany({
             where: {
-                gender: req.query.gen,
+                kasus: req.query.kas,
             },
         });
 
