@@ -4,6 +4,7 @@ import prisma from "lib/prisma";
 import createTens from "tens";
 
 export default async function handler(req, res) {
+    const questions = [];
     if (req.method !== "GET") {
         res.status(405).json({
             message: "Method Not Allowed",
@@ -15,7 +16,11 @@ export default async function handler(req, res) {
 
     let idResult = allQuestions.map((index) => index.id);
 
-    const questions = createTens(idResult);
+    const randArray = createTens(idResult); //returns randArray
+
+    randArray.map((num) => {
+        questions.push(allQuestions[num]);
+    });
 
     console.log("allquestions: ", questions);
 

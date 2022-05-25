@@ -7,7 +7,7 @@ export default function Test(props) {
     const router = useRouter();
     let gen = router.query.gender;
 
-    // console.log("fetch: ", gen);
+    console.log("fetch: ", gen);
 
     useEffect(() => {
         async function fetchQuestions() {
@@ -21,12 +21,14 @@ export default function Test(props) {
             setQuestions(data);
         }
         fetchQuestions();
-        // console.log("resp: ", router.res);
-    }, [gen]);
+
+        console.log("resp: ", router.res);
+        console.log("questions returned: ", questions);
+    }, []);
 
     return (
         <div className="test">
-            <h1>testing the routing</h1>
+            <h1>Test Questions for {gen} arrive here</h1>
             <MiniLogo />
             <h2>this is a test</h2>
             <div>

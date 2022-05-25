@@ -2,6 +2,7 @@ import prisma from "lib/prisma";
 import createTens from "tens";
 
 export default async function handler(req, res) {
+    const questions = [];
     if (req.method === "GET") {
         if (req.query.gen != "a" && req.query.gen != "d") {
             return res.status(400).json({ message: "Bad Request" });
@@ -16,7 +17,11 @@ export default async function handler(req, res) {
 
         let idResult = caseQuestions.map((index) => index.id);
 
-        const questions = createTens(idResult);
+        const randArray = createTens(idResult);
+
+        randArray.map((num) => {
+            questions.push(caseQuestions[num]);
+        });
 
         console.log("case questions: ", questions);
 

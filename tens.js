@@ -1,6 +1,5 @@
 export default function createTens(idResult) {
-    let questions;
-    let maxIndex = idResult.length;
+    let maxIndex = idResult.length - 1;
     let randArray = [];
 
     while (randArray.length < 10) {
