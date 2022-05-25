@@ -15,17 +15,9 @@ export default async function handler(req, res) {
             },
         });
 
-        let idResult = caseQuestions.map((index) => index.id);
+        const testQuestions = createTens(caseQuestions);
 
-        const randArray = createTens(idResult);
-
-        randArray.map((num) => {
-            questions.push(caseQuestions[num]);
-        });
-
-        console.log("case questions: ", questions);
-
-        res.status(200).json(questions);
+        res.status(200).json(testQuestions);
     } else {
         res.status(405)
             .json({

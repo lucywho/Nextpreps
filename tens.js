@@ -1,6 +1,9 @@
-export default function createTens(idResult) {
-    let maxIndex = idResult.length - 1;
+export default function createTens(dbQuestions) {
+    let questions = [];
     let randArray = [];
+
+    let idResult = dbQuestions.map((index) => index.id);
+    let maxIndex = idResult.length - 1;
 
     while (randArray.length < 10) {
         //generates random number between 0 and maxIndex
@@ -15,5 +18,9 @@ export default function createTens(idResult) {
         }
     }
 
-    return randArray;
+    randArray.map((num) => {
+        questions.push(dbQuestions[num]);
+    });
+
+    return questions;
 }
