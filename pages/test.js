@@ -28,11 +28,11 @@ export default function Test(props) {
     }, [])
 
     return (
-        <div className="test">
+        <div className="question-container">
             <h1>Test Questions for {kas} arrive here</h1>
             <MiniLogo />
             <h2>this is a test</h2>
-            <div>
+            <div className="questions">
                 {error ? (
                     <p>Sorry, something went wrong. Please try again.</p>
                 ) : (
